@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Radio Button</title>
+    <style>
+body {
+  background-image: url('new.jpg');
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+}
+.p1{
+margin-left: 250px;
+font-size: 40px;
+}
+.p2{
+margin-left: 1100px;
+margin-top: -380px;
+font-size: 40px;
+}
+.d{
+  cursor: pointer;
+  background-color: red;
+  width: 250px;
+  height: 250px;
+  margin-left: 250px;
+  margin-top: 80px;
+}
+.rad{
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 80%;
+  width: 66px;
+  height: 66px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+input:checked {
+  border: 19px solid lightblue;
+  outline: unset !important /* I added this one for Edge (chromium) support */
+}
+.div1{
+  
+  margin-left: 1100px;
+  margin-top: 30px;
+  background-color: red;
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+}
+label{
+  font-size: 60px;
+  cursor: pointer;
+}
+#btn{
+  height: 50px;
+  margin-left: 270px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+#btn1{
+  height: 50px;
+  margin-left: 1130px;
+  margin-top: -50px;
+  cursor: pointer;
+}
+.tb{
+  align-items: center;
+  margin-top: -700px;
+  font-size: 80px;
+  margin-left: 670px;
+cursor: pointer;
+}
+#btn2{
+  height: 50px;
+  margin-left: 680px;
+  width:190px;
+  cursor: pointer;
+}
+#output{
+  margin-left: 260px;
+  font-size: 20px;
+}
+#output1{
+  margin-left: 1100px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+#output4{
+  margin-left: 760px;
+  font-size: 30px;
+  margin-top: 10px;
+}
+#output3{
+  margin-left: 720px;
+  font-size: 30px;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+    <p class="p1"><b>PLAYER&nbsp;1</b></p>
+    <div class="d">
+    <div>
+        <input type="radio" name="size" value="six" id="xs" class="rad">
+        <label for="xs">SIX</label>
+    </div>
+    <div>
+        <input type="radio" name="size" value="four" id="s" class="rad">
+        <label for="s">FOUR</label>
+    </div>
+    <div>
+        <input type="radio" name="size" value="out" id="m" class="rad">
+        <label for="m">OUT</label>
+    </div>
+  </div>
+     <p class="p2"><b>PLAYER&nbsp;2</b></p><br>
+
+  <div class="div1">
+    
+    <div>
+        <input type="radio" name="size1" value="six" id="l" class="rad">
+        <label for="l">SIX</label>
+    </div>
+    <div>
+        <input type="radio" name="size1" value="four" id="xl" class="rad">
+        <label for="xl">FOUR</label>
+    </div>
+    <div>
+        <input type="radio" name="size1" value="out" id="xxl" class="rad">
+        <label for="xxl">OUT</label>
+    </div>
+  </div>
+   
+         <br><button id="btn">PLAYER1 SUBMIT</button>
+         <button id="btn1">PLAYER2 SUBMIT</button><br>
+          <button id="btn2">check result</button>
+    
+
+   
+     <p id="output2"></p>
+     <p id="output4"></p>
+     <p id="output3"></p>
+
+<table class="tb" style="border:none;border-spacing: 60px;">
+ 
+  <tr><td id="vv"></td><td id="vvv"></td></tr>
+</table>
+    <script>
+      var score=prompt('enter how many points');
+var u1ans;
+var u2ans;
+        const btn = document.querySelector('#btn');        
+        const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `user1 selected ${selectedSize}` : `You haven't selected any size`;
+
+             u1ans=`${selectedSize}`;
+             console.log('you selected'+u1ans)
+            //document.write(u1ans);
+
+ });
+
+const btn1 = document.querySelector('#btn1');       
+            const radioButtons1 = document.querySelectorAll('input[name="size1"]');
+        btn1.addEventListener("click", () => {
+            let selectedSize1;
+            for (const radioButton1 of radioButtons1) {
+                if (radioButton1.checked) {
+                    selectedSize1 = radioButton1.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output1.innerText = selectedSize1 ? `user2 selected ${selectedSize1}` : `You haven't selected any size`;
+            u2ans=`${selectedSize1}`;
+            //document.write(u2ans);
+
+
+
+
+
+
+
+        });
+var p1,p2;
+p1=0;
+p2=0;
+const btn2 = document.querySelector('#btn2');    
+btn2.addEventListener("click", () => {
+
+
+var items = ["four", "six", "out"];
+ //var items = [254, 45, 212, 365, 2543];
+
+  
+var ab=items[Math.floor(Math.random()*items.length)];
+//document.write(u1ans);
+output4.innerText=`${ab}`;
+if (u1ans==ab&&u2ans==ab) {
+output3.innerText = `both are winner`;
+p1=p1+1;
+p2=p2+1;
+
+
+}
+else if (u1ans==ab) {
+  output3.innerText = `user1  winner`;
+p1=p1+1;
+}
+else if (u2ans==ab) {
+  output3.innerText = `user2  winner`;
+p2=p2+1;
+}
+else{
+   output3.innerText = `both loose`;
+}
+
+
+vv.innerText=`${p1}`;
+vvv.innerText=`${p2}`;
+
+     
+if (p1==score) {
+  window.location.href="winner.html";
+}
+else if(p2==score)
+{
+   window.location.href="winner.html";
+
+}
+
+
+
+
+
+ });
+
+//document.write(u2ans);
+    </script>
+</body>
+</html>
